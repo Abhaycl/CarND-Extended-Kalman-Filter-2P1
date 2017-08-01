@@ -53,9 +53,14 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
       * update the state by using Extended Kalman Filter equations
     */
     //obtaining the state of the object x for the values of rho, theta, rho_dot
-    double rho = sqrt(x_(0) * x_(0) + x_(1) * x_(1));
-    double theta = atan(x_(1) / x_(0));
-    double rho_dot = (x_(0) * x_(2) + x_(1) * x_(3)) / rho;
+    float rho = sqrt(x_(0) * x_(0) + x_(1) * x_(1));
+    float theta = atan2(x_(1), x_(0));
+    float rho_dot;
+	if (fabs(rho) < 0.0001) {
+        rho_dot = 0;
+    } else {
+        rho_dot = (x_(0) * x_(2) + x_(1) * x_(3)) / rho;
+    }
     VectorXd h = VectorXd(3);
     h << rho, theta, rho_dot;
     

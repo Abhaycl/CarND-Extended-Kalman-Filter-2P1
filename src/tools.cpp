@@ -1,7 +1,6 @@
 #include <iostream>
 #include "tools.h"
 
-using namespace std;
 using Eigen::VectorXd;
 using Eigen::MatrixXd;
 using std::vector;
@@ -70,7 +69,7 @@ MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
 	
 	//check division by zero
 	if(fabs(c1) < 0.0000001){
-		//cout << "CalculateJacobian () - Error - Division by Zero" << endl;
+        //cout << "CalculateJacobian () - Error - Division by Zero" << endl;
 		//return Hj;
         c1 = 0.0000001; //assignment of a very small value
 	}

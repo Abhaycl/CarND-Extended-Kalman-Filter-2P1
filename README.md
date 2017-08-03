@@ -16,6 +16,7 @@ In this project you will utilize a kalman filter to estimate the state of a movi
 3. cmake ..
 4. make
 5. ./ExtendedKF
+6. and run the simulator
 ```
 
 The summary of the files and folders int repo is provided in the table below:
@@ -24,12 +25,13 @@ The summary of the files and folders int repo is provided in the table below:
 | :-------------------- | :-------------------------------------------------------------------------------------------- |
 | src/FusionEKF.cpp     | Initializes the Kalman Filter, prepare the Q and F matrices for the prediction step, and call |
 | src/FusionEKF.h       | the radar and lidar update functions                                                          |
-| src/kalman_filter.cpp | Contains the Predict(), Update(), and UpdateEKF() functions.                                  |
+| src/kalman_filter.cpp | Defines the Predict(), Update(), and UpdateEKF() functions for lidar y radar.                 |
 | src/kalman_filter.h   |                                                                                               |
 | src/tools.cpp         | Contains the functions that calculate root mean squared error (RMSE) and the Jacobian matrix. |
 | src/tools.h           |                                                                                               |
-| src/main.cpp          | Has several functions within main(), these all handle the uWebsocketIO communication between  |
-|                       | the simulator and it's self.                                                                  |
+| src/main.cpp          | Has several functions within main(), communicates with the Term 2 Simulator receiving data    |
+|                       | measurements, calls a function to run the Kalman filter, calls a function to calculate RMSE   |
+|                       | these all handle the uWebsocketIO communication between the simulator and it'sself.           |
 |                       |                                                                                               |
 | src                   | Folder where are all the source files of the project.                                         |
 | build                 | Folder where the project executable has been compiled.                                        |

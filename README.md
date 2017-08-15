@@ -16,7 +16,7 @@ In this project you will utilize a kalman filter to estimate the state of a movi
 3. cmake ..
 4. make
 5. ./ExtendedKF
-6. and run the simulator
+6. and run the simulator and select Project 1/2: EKF and UKF
 ```
 
 The summary of the files and folders int repo is provided in the table below:
